@@ -1,0 +1,21 @@
+<div class='panel panel-default'>
+    <!-- Default panel contents -->
+    <div class='panel-heading'>List of devices</div>
+    <div class='panel-body'>
+        There are {{ devices.length }} device(s) record in the dataBase
+    </div>
+    <table class='table'>
+        <tr>
+            <th scope='col'>#</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Average Consumption</th>
+            <th scope='col'>Delete</th>
+        </tr>
+        <tr ng-repeat=' device in devices'>
+            <td><a href = '#/device/get/{{ device.id}}'> {{ device.id }} </a></td>
+            <td><a href = '#/device/get/{{ device.id}}'> {{ device.name }} </a></td>
+            <td> {{ device.avgCons }} </td>
+            <td> <a href = '#/device/delete/{{ device.id }}' ><input type='button' value='Delete' /></a> </td>
+        </tr>
+    </table>
+</div>

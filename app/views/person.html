@@ -1,0 +1,24 @@
+<div class='panel panel-default'>
+    <!-- Default panel contents -->
+    <div class='panel-heading'>List of persons</div>
+    <div class='panel-body'>
+        There are {{ persons.length }} person(s) record in the dataBase <br /><br />
+        <a href='#/person/add/'><input class='btn btn-defaul' type='button' value='add new person' /></a>
+    </div>
+    <table class='table'>
+        <tr>
+            <th scope='col'>#</th>
+            <th scope='col'>FirstName</th>
+            <th scope='col'>LastName</th>
+            <th scope='col'>Sex</th>
+            <th scope='col'>Delete</th>
+        </tr>
+        <tr ng-repeat=' person in persons'>
+            <td><a href = '#/person/get/{{ person.id}}'> {{ person.id }} </a></td>
+            <td><a href = '#/person/get/{{ person.id}}'> {{ person.firstName }} </a></td>
+            <td> {{ person.lastName }} </td>
+            <td> {{ person.sex }} </td>
+            <td> <a href = '#/person/delete/{{ person.id }}' ><input type='button' value='Delete' /></a> </td>
+        </tr>
+    </table>
+</div>

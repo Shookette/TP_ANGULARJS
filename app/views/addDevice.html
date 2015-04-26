@@ -1,0 +1,43 @@
+<form novalidate>
+    <legend>Add new SmartDevice</legend>
+    <div class='form-group'>
+        <label for='name'>Name: </label>
+        <input type='text' class='form-control' ng-model='device.name' id='name' required />
+    </div>
+    <div class='form-group'>
+        <label for='avgcons'>Average Consumption: </label>
+        <input type='number' class='form-control' ng-model='device.avgcons' id='avgcons' required />
+    </div>
+    <div  ng-init="device.deviceType='heater'">
+        <label class='form-group'>
+            <input type='radio' ng-model='device.deviceType' value='heater' checked="checked" required/>Heater
+        </label>
+        <label class='form-group'>
+            <input type='radio' ng-model='device.deviceType' value='electronic' required />Electronic Device
+        </label>
+    </div>
+    <div ng-switch='device.deviceType'>
+        <div ng-switch-when='heater'>
+            <div class='form-group'>
+                <label for='temperatureMin'>Minimal Temperature: </label>
+                <input type='number' class='form-control' ng-model='device.temperatureMin' id='temperatureMin' required />
+            </div>
+            <div class='form-group'>
+                <label for='temperatureMax'>Maximal Temperature: </label>
+                <input type='number' class='form-control' ng-model='device.temperatureMax' id='temperatureMax' required />
+            </div>
+            <div class='form-group'>
+                <label for='power'>Power: </label>
+                <input type='text' class='form-control' ng-model='device.power' id='power' required />
+            </div>
+        </div>
+        <div ng-switch-when='electronic'>
+            <div class='form-group'>
+                <label for='type'>Type: </label>
+                <input type='text' class='form-control' ng-model='device.type' id='type' required />
+            </div>
+        </div>
+    </div>
+    <input type='button' class='btn btn-default' ng-click='reset()' value='Reset' />
+    <input type='submit' class='btn btn-default' ng-click='add(device)' value='Save' />
+</form>

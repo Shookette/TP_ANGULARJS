@@ -1,0 +1,50 @@
+<form novalidate>
+    <legend>Add new person</legend>
+    <div class='form-group'>
+        <label for='firstName'>FirstName: </label>
+        <input type='text' class='form-control' ng-model='person.firstName' id='firstName' required />
+    </div>
+    <div class='form-group'>
+        <label for='lastName'>LastName: </label>
+        <input type='text' class='form-control' ng-model='person.lastName' id='lastName' required />
+    </div>
+    <div class='form-group'>
+        <label for='email'>E-mail: </label>
+        <input type='email' class='form-control' ng-model='person.email' id='email' required />
+    </div>
+    <div class='form-group'>
+        <label for='facebook'>Facebook: </label>
+        <input type='text' class='form-control' ng-model='person.facebook' id='facebook' required />
+    </div>
+    <div class='form-group'>
+        <label for='birthday'>Birthday: </label>
+        <input type='date' class='form-control' ng-model='person.birthday' id='birthday' value='{{ person.birthday }}' required />
+    </div>
+    <div ng-init="person.sex='M'">
+        <label class='form-group'>Sex: </label>
+        <input type='radio' ng-model='person.sex' value='M' id='sex' required />male
+        <input type='radio' ng-model='person.sex' value='F' required />female
+    </div>
+    <div class='checkbox'>
+        <label>
+            <input type='checkbox' ng-model='person.home.create' value='true' /> Create a house ?
+        </label>
+    </div>
+    <div ng-if='person.home.create'>
+        <div class='form-group'>
+            <label for='adress'>Adress: </label>
+            <input type='text' class='form-control' ng-model='person.home.adress' id='adress' required />
+        </div>
+        <div class='form-group'>
+            <label for='area'>Area: </label>
+            <input type='number' class='form-control' ng-model='person.home.area' id='area' required />
+        </div>
+        <div class='form-group'>
+            <label for='ipAdress'>IpAdress: </label>
+            <input type='text' class='form-control' ng-model='person.home.ipAdress' id='ipAdress' required />
+        </div>
+    </div>
+
+    <input type='button' class='btn btn-default' ng-click='reset()' value='Reset' />
+    <input type='submit' class='btn btn-default' ng-click='add(person)' value='Save' />
+</form>

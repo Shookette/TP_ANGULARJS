@@ -1,0 +1,45 @@
+<a href='#/home'><input class='btn btn-defaul' type='Button' value='Back to the homes list' /></a>
+<a href='#/home/delete/{{ home.id }}'><input class='btn btn-defaul' type='Button' value='Delete' /></a>
+<br />
+<br />
+
+<div class='panel panel-default'>
+    <!-- Default panel contents -->
+    <div class='panel-heading'>{{ home.adress }}</div>
+    <div class='panel-body'>
+        <ul>
+            <li> {{ home.area }} </li>
+            <li> {{ home.ipAdress }} </li>
+        </ul>
+        <a href='#/device/add/{{ home.id }}'><input class='btn btn-defaul' type='Button' value='Add SmartDevice' /></a>
+
+    </div>
+    <table class='table'>
+        <tr>
+            <th scope='col'>#</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Average Consumption</th>
+            <div ng-if='device.type != null'>
+                <th scope='col'>Type</th>
+            </div>
+            <div ng-if="video != video.large">
+                <th scope='col'>Minimal Temperature</th>
+                <th scope='col'>Maximal Temperature</th>
+                <th scope='col'>Power</th>
+            </div>
+        </tr>
+        <tr ng-repeat=' device in home.devices'>
+            <td> {{ device.id }} </td>
+            <td> {{ device.name }} </td>
+            <td> {{ device.avgCons }} </td>
+            <div ng-if='device.type != null'>
+                <td> {{ device.type }} </td>
+            </div>
+            <div ng-if="video != video.large">
+                <td> {{ device.temperatureMin }} </td>
+                <td> {{ device.temperatureMax }} </td>
+                <td> {{ device.power }} </td>
+            </div>
+        </tr>
+    </table>
+</div>

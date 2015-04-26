@@ -1,0 +1,23 @@
+<div class='panel panel-default'>
+    <!-- Default panel contents -->
+    <div class='panel-heading'>List of homes</div>
+    <div class='panel-body'>
+        There are {{ homes.length }} home(s) record in the dataBase <br /><br />
+        <a href='#/home/add/'><input class='btn btn-defaul' type='button' value='add new home' /></a>
+
+    </div>
+    <table class='table'>
+        <tr>
+            <th scope='col'>#</th>
+            <th scope='col'>Adress</th>
+            <th scope='col'>Area</th>
+            <th scope='col'>Delete</th>
+        </tr>
+        <tr ng-repeat=' home in homes'>
+            <td><a href='#/home/get/{{ home.id }}' > {{ home.id }} </a></td>
+            <td><a href='#/home/get/{{ home.id }}' > {{ home.adress }} </a></td>
+            <td> {{ home.area }} </td>
+            <td> <a href = '#/home/delete/{{ home.id }}' ><input type='button' value='Delete' /></a> </td>
+        </tr>
+    </table>
+</div>

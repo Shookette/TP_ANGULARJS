@@ -1,0 +1,17 @@
+<form novalidate>
+    <legend>Add new home</legend>
+    <div class='form-group'>
+        <label for='adress'>Adress: </label>
+        <input type='text' class='form-control' ng-model='home.adress' id='adress' required />
+    </div>
+    <div class='form-group'>
+        <label for='area'>Area: </label>
+        <input type='number' class='form-control' ng-model='home.area' id='area' required />
+    </div>
+    <div class='form-group'>
+        <label for='ipAdress'>IpAdress: </label>
+        <input type='text' class='form-control' ng-model='home.ipAdress' id='ipAdress' required />
+    </div>
+    <input type='button' class='btn btn-default' ng-click='reset()' value='Reset' />
+    <input type='submit' class='btn btn-default' ng-click='add(home)' value='Save' />
+</form>
