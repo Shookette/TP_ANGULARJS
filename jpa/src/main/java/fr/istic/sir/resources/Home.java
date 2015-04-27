@@ -64,7 +64,6 @@ public class Home {
 	}
 	
 	@ManyToOne
-	
 	@JsonBackReference("person-home")
 	public Person getOwner() {
 		return owner;

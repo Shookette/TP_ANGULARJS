@@ -10,25 +10,20 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
 
-import fr.istic.sir.dao.HomeService;
+import fr.istic.sir.Service.HomeService;
 import fr.istic.sir.resources.Home;
 
 @Path("/homes")
-public class HomeResource {
+public class HomeResource implements GenericResource<Home>{
 	
-	/**
-	 * Get all homes from json
-	 * @return List<Home> in JSON
-	 */
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Home> gethomes() {
-		return new HomeService().getAll();
+	public List<Home> getAll() {
+		return new HomeService().findAll();
 	}
 	
 	/**
@@ -39,10 +34,10 @@ public class HomeResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Home getHome(@PathParam("id") int id) {
-		return new HomeService().getById(id);
+	public Home get(@PathParam("id")int id) {
+		return new HomeService().find(id);
 	}
-	
+
 	/**
 	 * Delete a home from this id encode in json
 	 * @param id
@@ -50,11 +45,11 @@ public class HomeResource {
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public Response deleteHome(@PathParam("id") int id) {
-		new HomeService().delete(id);
-		return Response.status(200).entity(true).build();
+	public void delete(@PathParam("id")int id) {
+		HomeService HomeS = new HomeService();
+		HomeS.delete(HomeS.find(id));
 	}
-	
+
 	/**
 	 * Add a house
 	 * @param jsonResult
@@ -62,12 +57,11 @@ public class HomeResource {
 	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addHome(String jsonResult) {
+	public void add(String jsonResult) {
 		//Here I can use Gson because the format of my prorieties are only int or String
 		//So I use Gson for this rapidity and facility
 		Gson gson = new Gson();
 		Home home = gson.fromJson(jsonResult, Home.class);
 		new HomeService().add(home);
-		return Response.status(200).entity(true).build();
 	}
 }
