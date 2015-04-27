@@ -22,7 +22,7 @@ angular.module('yoApp')
     })
     //Controller to delete a home by this id
     .controller('HomeDeleteController',function ($scope, $routeParams, $location, Home) {
-        $scope.device = Home.get({ id:$routeParams.homeId }, function() {
+        $scope.home = Home.get({ id:$routeParams.homeId }, function() {
             $scope.home.$delete();
         });
         $scope.$apply(function() {
