@@ -40,9 +40,15 @@ Le path de base pour Jersey est **/**.
 
 | Method     | URL | Action   |
 | :------- | ----: | :---: |
-| GET    | /homes  |  créer une maison   |
-| GET    | /homes/{id}  |  créer une maison   |
-| DELETE    | /homes/{id}  |  créer une maison   |
+| GET    | /homes  |  affiche toutes les maisons   |
+| GET    | /homes/{id}  |  affiche une maison   |
+| DELETE    | /homes/{id}  |  supprime une maison   |
 | POST    | /homes  |  créer une maison   |
-| GET    | /persons  |  créer une maison   |
-| GET    | /devices  |  créer une maison   |
+| GET    | /persons  |  affiche toutes les personnes   |
+| GET    | /persons/{id}  |  affiche une personne   |
+| DELETE    | /persons/{id}  |  supprime une personne   |
+| POST    | /persons  |  créer une personne   |
+| GET    | /devices  |  affiche toutes les devices   |
+| GET    | /devices/{id}  |  affiche une devices   |
+| DELETE    | /devices/{id}  |  supprime une devices   |
+| POST    | /devices  |  créer une devices   |
